@@ -1,0 +1,55 @@
+body{
+  margin-top: 1%;
+  background-color:  #edeff0;
+}
+/* ------------------------------*/
+/* ---navigation bar styles ---- */
+/* ------------------------------*/
+
+.stickynav{
+  width: 89%;
+	position: fixed;
+	top: 0;
+	margin-right: 3%;
+	background-color:  #d5d9ca;
+	box-shadow: 0 2px 2px #747474;
+	z-index:999;
+}
+.js-content{
+  width: 86.6%
+  padding :0;
+
+}
+
+/* ------------------------------*/
+/* --- images styles ---- */
+/* ------------------------------*/
+#animalimg{
+  height: 350;
+  width: 100%;
+}
+.banner-img{
+  height:auto;
+  width: 100%;
+}
+.centeralign{
+  text-align: center;
+}
+
+.round-corner{
+border-radius: 60 px;
+}
+
+/* ------------------------------*/
+/* --- footer styles ---- */
+/* ------------------------------*/
+.callout{
+  margin-bottom: 0;
+}
+.columns{
+  padding-left: 0;
+  padding-right: 0;
+}
+.footer{
+  padding-top: 0;
+}

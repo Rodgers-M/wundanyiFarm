@@ -1,0 +1,22 @@
+{
+  "name": "wundanyifarm",
+  "description": "A simple farm management system",
+  "main": "server.js",
+  "authors": [
+    "Rodgers Mzungu"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Rodgers-M/wundanyiFarm",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "^5.5.3",
+    "foundation-sites": "^6.3.0"
+  }
+}
