@@ -1,2 +1,40 @@
 <% include partials/masterhead %>
-<h1> Sign up page will be rendered here</h1>
+
+<div class="row">
+  <div class="medium-4 columns medium-offset-4">
+    <h1> Login</h1>
+  </div>
+</div>
+
+<% if (message.length > 0) { %>
+    <div class="row collapse">
+    <div class="large-12 columns">
+      <div data-alert class="alert-box warning ">
+        <%= message %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    </div>
+    </div>
+    <% } %>
+
+<form action="/session/create">
+  <div class="row" >
+    <div class="medium-4 columns medium-offset-4" >
+      <label>Input Label
+       <input type="text" placeholder="email adress">
+     </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns medium-offset-4">
+      <label>Input Label
+       <input type="text" placeholder="email adress">
+     </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns medium-offset-4">
+      <button type="submit" class="button success">Login</button>
+    </div>
+  </div>
+</form>
