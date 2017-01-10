@@ -7,4 +7,10 @@ module.exports ={
         //title: "Login Page"
     });
   },
+
+  delete : function(req, res){
+    req.logout();
+    res.redirect('/');
+   req.session.destroy();
+  }
 };
