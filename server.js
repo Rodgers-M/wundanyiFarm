@@ -12,15 +12,22 @@ var flash            =  require('connect-flash');
 var cookieParser     =  require('cookie-parser');
 var session          =  require('express-session');
 
+app.use(morgan('dev'));
 //connect to database
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
-//require('./config/passport')(passport);
+//require passport for authentication
+require('./config/passport')(passport);
 
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/public'));
-app.use(morgan('dev'));
+
 app.use(cookieParser());
-app.use(session({ secret: 'youwontgetit' }));
+app.use(session({
+	 resave            : true,
+   saveUninitialized : true,
+	 secret						 : configDB.secret
+}));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash());
