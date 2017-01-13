@@ -9,7 +9,7 @@ module.exports ={
   },
 
   create : function(req, res){
-    res.send('hello');
+    res.send('hello, you have logged in successfully');
   },
 
   delete : function(req, res){
