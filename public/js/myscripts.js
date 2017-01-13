@@ -9,7 +9,7 @@ $(document).ready(function(){
 			$('#stickydiv').removeClass('stickynav');
 		}
 	} , {
-	//	offset: '15%;'
+		//offset: '40%;'
 	});
 
 });
