@@ -1,5 +1,3 @@
-var passport = require('passport');
-
 module.exports ={
   new : function(req, res){
     res.render('login', {
@@ -7,11 +5,6 @@ module.exports ={
         title: "Login Page"
     });
   },
-
-  create : function(req, res){
-    res.send('hello, you have logged in successfully');
-  },
-
   delete : function(req, res){
     req.logout();
     res.redirect('/');
