@@ -7,11 +7,10 @@
 </div>
 
 <% if (message.length > 0) { %>
-    <div class="row collapse">
+    <div class="row ">
     <div class="medium-4  columns medium-offset-4">
-      <div data-alert class="alert-box warning ">
-        <%= message %>
-        <a href="#" class="close">&times;</a>
+      <div class="callout small alert ">
+           <%= message %>
       </div>
     </div>
     </div>
@@ -30,13 +29,16 @@
   <div class="row">
     <div class="medium-4 columns medium-offset-4">
       <label>password
-       <input type="password" name="password" placeholder="email adress">
+       <input type="password" name="password" placeholder="password">
      </label>
     </div>
   </div>
   <div class="row">
-    <div class="medium-4 columns medium-offset-4">
+    <div class="medium-2 columns medium-offset-4">
       <button type="submit" class="button success">Login</button>
+    </div>
+    <div class="medium-2 columns end ">
+        <p> Not yet registered? <a href="/signup">Signup</a></p>
     </div>
   </div>
 </form>
