@@ -7,11 +7,10 @@
 </div>
 
 <% if (message.length > 0) { %>
-    <div class="row collapse">
+    <div class="row ">
     <div class="medium-4  columns medium-offset-4">
-      <div data-alert class="alert-box warning ">
-        <%= message %>
-        <a href="#" class="close">&times;</a>
+      <div class="callout small alert ">
+           <%= message %>
       </div>
     </div>
     </div>
@@ -32,6 +31,7 @@
      </label>
     </div>
   </div>
+
   <div class="row" >
     <div class="medium-4 columns medium-offset-4" >
       <label>User Name
@@ -39,6 +39,7 @@
      </label>
     </div>
   </div>
+
   <div class="row" >
     <div class="medium-4 columns medium-offset-4" >
       <label>Email Adress
@@ -54,8 +55,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="medium-4 columns medium-offset-4">
+    <div class="medium-2 columns medium-offset-4">
       <button type="submit" class="button success">signup</button>
+    </div>
+    <div class="medium-2 columns end ">
+        <p> Already have an account? <a href="/login">Login</a></p>
     </div>
   </div>
 </form>
