@@ -11,6 +11,8 @@ var passport         =  require('passport');
 var flash            =  require('connect-flash');
 var cookieParser     =  require('cookie-parser');
 var session          =  require('express-session');
+var cors             =  require('cors');
+var mongostore			 =  require('connect-mongo')(session);
 
 app.use(morgan('dev'));
 //connect to database
@@ -25,8 +27,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(session({
 	 resave            : true,
-   saveUninitialized : true,
-	 secret						 : configDB.secret
+     saveUninitialized : true,
+	 secret			   : configDB.secret
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -36,7 +38,7 @@ app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(function(req, res, next){
-	 res.set('X-Powered-By', 'wundanyiFarm');
+	 res.set('X-Powered-By', 'Agrimon');
 	 next();
 });
 var routes    =  require('./config/routes/index');
