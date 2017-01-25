@@ -29,5 +29,8 @@ router.post('/user/create',passport.authenticate('local-signup', {
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
+router.get('/dashboard', function( req, res) {
+   res.render('dashboardlayout');
+});
 
 module.exports = router;
