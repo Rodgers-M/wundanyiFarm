@@ -35,11 +35,6 @@ body{
 .centeralign{
   text-align: center;
 }
-
-.round-corner{
-border-radius: 60 px;
-}
-
 /* ------------------------------*/
 /* --- footer styles ---- */
 /* ------------------------------*/
@@ -52,4 +47,17 @@ border-radius: 60 px;
 }
 .footer{
   padding-top: 0;
+}
+
+/* ------------------------------*/
+/* --- Dasboard styles ---- */
+/* ------------------------------*/
+.sidebar{
+  background-color: #34425A;
+}
+.sidebar ul li a {
+  color: white;
+}
+.dash_icons{
+  margin-bottom: 9px;
 }
