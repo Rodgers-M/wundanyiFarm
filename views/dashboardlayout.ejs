@@ -4,11 +4,11 @@
 	<header>
 		<% include dashboard/navbar %>
 	</header>
-	<div class="row">
+	<div class="row" data-equalizer data-equalize-on="medium">
 		<% include dashboard/sidebar %>
-		<div class="medium-10 columns">
-			<%-body %>
+		<div class="medium-10 columns" data-equalizer-watch>
+		
 		</div>
 	</div>
-
+<% include partials/pageScripts %>
 </body>
