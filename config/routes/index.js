@@ -4,7 +4,7 @@ var router         =  express.Router();
 var homeRoutes     =  require('./home');
 var sessionRoutes  = require('./session');
 var userRoutes     = require('./user');
-
+var animalRoutes   = require('./animal');
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()){
     return next();
@@ -29,8 +29,8 @@ router.post('/user/create',passport.authenticate('local-signup', {
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
-router.get('/dashboard', function( req, res) {
-   res.render('dashboardlayout');
-});
+router.get('/records', animalRoutes.records);
+router.post('/animalnew', animalRoutes.create);
+router.get('/viewanimals', animalRoutes.index);
 
 module.exports = router;
