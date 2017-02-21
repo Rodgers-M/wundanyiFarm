@@ -1,0 +1,22 @@
+<% if (messages.error){ %>
+  <div class="callout alert" data-closable>
+    <p> <%= messages.error %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } else if (messages.info){ %>
+  <div class="callout warning" data-closable>
+    <p> <%= messages.info %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } else if (messages.success){ %>
+  <div class="callout success" data-closable>
+    <p> <%= messages.success %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
