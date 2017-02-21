@@ -1,0 +1,50 @@
+<% layout('dashboardlayout') %>
+<div class="row">
+  <div class="medium-5 columns medium-offset-1" style="margin-top:2%; margin-bottom: 2%;">
+    <% include ../partials/flash %>
+  </div>
+  <div class="medium-2 columns medium-offset-2 " style="margin-top:2%">
+    <a class="large button" href="#/animalheal">Animal Health</a>
+  </div>
+  <div class="medium-2 columns" style="margin-top:2%">
+    <a class="large button" href="/records">New Animal</a>
+  </div>
+</div>
+<div class="row" style="margin-left : 2%;">
+  <div class="medium-12 columns">
+    <div class="callout">
+      <div><h3>All Animals in the Farm</h3></div>
+      <div class="callout secondary">
+        <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>Animal Species</th>
+                <th>Tag Number</th>
+                <th>Gender</th>
+                <th>Date Bought</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% animals.forEach(function(animal, index){ %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= animal.species %></td>
+                <td><%= animal.tagnum %></td>
+                <td><%= animal.gender %></td>
+                <td><%= animal.date %></td>
+                <td>
+                  <ul class="menu">
+                    <li><a href="#" title="Edit"> Edit<i class="fa fa-pencil-square-o " aria-hidden="true"></i> </a></li>
+                    <li><a href="#" title="Delete"> Delete<i class="fa fa-trash " aria-hidden="true"></i></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
