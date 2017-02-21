@@ -33,6 +33,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash());
+app.use(function(req, res, next){
+  res.locals.user     =  req.user;
+  res.locals.messages =  req.flash();
+  next();
+});
 app.set('view engine', 'html');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -42,9 +47,7 @@ app.use(function(req, res, next){
 	 next();
 });
 var routes    =  require('./config/routes/index');
-app.use( routes);
-
-
+app.use(routes);
 
 app.listen(port, function(){
 	console.log('app listening on port '+ port);
