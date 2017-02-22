@@ -17,7 +17,7 @@ router.get('/', homeRoutes.index);
 router.get('/login', sessionRoutes.new);
 router.post('/session/create',
       passport.authenticate('local-login', {
-      successRedirect : '/', // redirect to the secure profile section
+      successRedirect : '/viewanimals',
       failureRedirect : '/login', // redirect back to the signup page if there is an error
       failureFlash : true // allow flash messages
   })
@@ -25,7 +25,7 @@ router.post('/session/create',
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create',passport.authenticate('local-signup', {
-        successRedirect : '/login', // redirect to the secure profile section
+        successRedirect : '/viewanimals', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
