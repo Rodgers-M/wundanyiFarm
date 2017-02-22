@@ -47,15 +47,28 @@ body{
 }
 .footer{
   padding-top: 0;
+  color: white;
+  background-color:  #34425A;
 }
-
+.contacts-twitter a:hover {
+  color : #00aced;
+}
+.contacts-inst a:hover {
+  color :#bc2a8d;
+}
+.contacts-fb a:hover {
+  color : #3b5998;
+}
+.contacts-ytb a:hover {
+  color : #bb0000;
+}
 /* ------------------------------*/
 /* --- Dasboard styles ---- */
 /* ------------------------------*/
 .sidebar{
   background-color: #34425A;
 }
-.sidebar ul li a {
+.sidebar ul li a, .contacts a {
   color: white;
 }
 .dash_icons{
