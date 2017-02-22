@@ -1,6 +1,4 @@
 <% include partials/masterhead %>
-
-
 <div class="row" style="margin-top : 2%; ">
   <div class="medium-5 columns medium-offset-3" style="background-color: #d5d9ca; ">
       <form action="/session/create" method="post" >
@@ -9,15 +7,11 @@
             <h1>Login</h1>
           </div>
         </div>
-        <% if (message.length > 0) { %>
-            <div class="row ">
-            <div class="medium-8  columns medium-offset-2">
-              <div class="callout small alert ">
-                   <%= message %>
-              </div>
-            </div>
-            </div>
-            <% } %>
+        <div class="row">
+          <div class="medium-8 columns medium-offset-2" style="margin-top:2%; margin-bottom: 2%;">
+            <% include /partials/flash %>
+          </div>
+        </div>
         <div class="row" >
           <div class="medium-8 columns medium-offset-2" >
             <label> <h6>User Name</h6>
@@ -43,3 +37,4 @@
       </form>
   </div>
 </div>
+<% include partials/pageScripts %>
