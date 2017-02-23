@@ -1,12 +1,71 @@
 <% layout('dashboardlayout') %>
 <ul class="tabs" data-tabs id="animal-tabs">
-  <li class="tabs-title is-active"><a href="#newanimal" aria-selected="true"><h5>New Animal</h5></a></li>
-  <li class="tabs-title"><a href="#health"><h5>Health</h5></a></li>
+  <li class="tabs-title "><a href="#newanimal" aria-selected="true"><h5>New Animal</h5></a></li>
+  <li class="tabs-title is-active"><a href="#health"><h5>Health</h5></a></li>
   <li class="tabs-title"><a href="#breeds"><h5>Breeding</h5></a></li>
     <li class="tabs-title"><a href="#production"><h5>Production</h5></a></li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="animal-tabs">
+  <div class="tabs-panel is-active" id="health">
+    <div class="callout success" style="margin-bottom: 1%;">
+      <p> Animal health is a very important issue and needs to be handled with care.
+        Ensure  you always record every activity and the records are correct.
+      </p>
+    </div>
+    <div class="row" style="margin-bottom: 1%;">
+      <div class="medium-6 columns medium-offset-4" style="margin-top:2%" align="center">
+        <% include ../partials/flash %>
+      </div>
+    </div>
+    <form action="/healthcreate" method="post">
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Tag Number</strong></h5>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="text" name="tagnum" placeholder="Animal tag number">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Disease Name </h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="text" name='disease' placeholder="Disease diagnosed/vaccinated">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Date Diagnosed</h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="date" name="diagnosedate" >
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Total cost</h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="number" name="cost" placeholder="The cost charged for vet services and drugs">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Next Dose </h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="date" name="nextdose" placeholder="Next treatment/vaccination">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 medium-offset-6">
+          <button class="button large"type="submit">Save Records</button>
+        </div>
+      </div>
+    </form>
+  </div>
   <div class="tabs-panel is-active" id="newanimal">
     <div class="callout success" style="margin-bottom: 1%;">
       <p> Recently bought a new animal? Dont forget to input the animal's deatails
@@ -14,7 +73,7 @@
       </p>
     </div>
 <div class="row" style="margin-bottom: 1%;">
-  <div class="medium-4 columns medium-offset-4" style="margin-top:2%" align="center">
+  <div class="medium-6 columns medium-offset-4" style="margin-top:2%" align="center">
     <% include ../partials/flash %>
   </div>
 </div>
@@ -60,52 +119,6 @@
         </div>
         <div class="medium-6 columns end">
           <input type="date" placeholder="Date diagnosed/vaccinated">
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-3 medium-offset-6">
-          <button class="button large"type="submit">Save Records</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="tabs-panel is-active" id="health">
-    <div class="callout success" style="margin-bottom: 1%;">
-      <p> Animal health is a very important issue and needs to be handled with care.
-        Ensure  you always record every activity and the records are correct.
-      </p>
-    </div>
-    <form action="/animalhealth" method="post">
-      <div class="row">
-        <div class="medium-3 columns medium-offset-1">
-          <label><h5>Tag Number</strong></h5>
-        </div>
-        <div class="medium-6 columns end">
-          <input type="text" placeholder="Animal tag number">
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-3 columns medium-offset-1">
-          <label><h5>Disease Name </h5></label>
-        </div>
-        <div class="medium-6 columns end">
-          <input type="text" placeholder="Disease diagnosed/vaccinated">
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-3 columns medium-offset-1">
-          <label><h5>Date </h5></label>
-        </div>
-        <div class="medium-6 columns end">
-          <input type="date" placeholder="Date diagnosed/vaccinated">
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-3 columns medium-offset-1">
-          <label><h5>Next Dose </h5></label>
-        </div>
-        <div class="medium-6 columns end">
-          <input type="date" placeholder="Next treatment/vaccination">
         </div>
       </div>
       <div class="row">
