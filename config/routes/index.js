@@ -32,5 +32,6 @@ router.post('/user/create',passport.authenticate('local-signup', {
 router.get('/records', animalRoutes.records);
 router.post('/animalnew', animalRoutes.create);
 router.get('/viewanimals', animalRoutes.index);
+router.post('/healthcreate', animalRoutes.healthcreate);
 
 module.exports = router;
