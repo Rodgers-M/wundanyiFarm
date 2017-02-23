@@ -1,4 +1,5 @@
 var Animal = require('../../app/models/animal');
+var Health = require('../../app/models/health');
 
 module.exports = {
   index : function(req, res){
@@ -15,11 +16,6 @@ module.exports = {
       page :'animals'
     });
   },
-  health : function(req, res){
-    res.render('animals/health', {
-      page : 'animals'
-    });
-  },
   create : function(req,res){
     var animal = new Animal();
 
@@ -27,7 +23,7 @@ module.exports = {
     animal.gender   = req.body.gender;
     animal.tagnum   = req.body.tagnum;
 
-    Animal.findOne({tagnum: animal.tagnum}, function(err, foundAnimal){
+    Animal.findOne({'tagnum': animal.tagnum}, function(err, foundAnimal){
       if (foundAnimal){
         req.flash('error', 'Animal already exists in records, please ensure to input correct tag number');
         return res.redirect('/records');
@@ -40,5 +36,41 @@ module.exports = {
         });
       }
     });
+  },
+  health : function(req, res){
+    res.render('animals/health', {
+      page : 'animals'
+    });
+  },
+  healthcreate : function(req, res){
+
+    var tagnum = req.body.tagnum;
+    console.log(tagnum)
+    Animal.findOne({'tagnum': tagnum},'_id', function(err, foundAnimal){
+      if(err) return(err);
+      if(!foundAnimal){
+        req.flash('error', 'No animal with provided tag number found, please make sure the animal details exist in the system');
+        res.redirect('/records');
+      }
+      else {
+        var animalId = foundAnimal._id;
+        console.log(animalId)
+        var health = new Health();
+
+        health.disease = req.body.disease;
+        health.diagnosedate = req.body.diagnosedate;
+        health.cost = req.body.cost;
+        health.nextdose = req.body.nextdose;
+        health.animal = animalId;
+
+        health.save(function(err,heath){
+          if(err) return(err);
+          req.flash('success', 'health record saved successfuly');
+          console.log('saved record', health);
+          res.redirect('/records');
+        });
+      }
+    });
+
   }
   }
