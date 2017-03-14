@@ -1,6 +1,7 @@
 body{
   margin-top: 1%;
   background-color:  #edeff0;
+  overflow-x: hidden;
 }
 /* ------------------------------*/
 /* ---navigation bar styles ---- */
@@ -69,8 +70,14 @@ body{
   background-color: #34425A;
 }
 .sidebar ul li a, .contacts a {
-  color: white;
+  color: #899dc1;
+}
+.sidebar ul li a:hover{
+  color:white;
 }
 .dash_icons{
   margin-bottom: 9px;
+}
+.dashnav{
+  color: white;
 }
