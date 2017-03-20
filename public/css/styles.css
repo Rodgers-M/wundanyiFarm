@@ -64,20 +64,26 @@ body{
   color : #bb0000;
 }
 /* ------------------------------*/
-/* --- Dasboard styles ---- */
+/* --- Dasboard styles #899dc1---- */
 /* ------------------------------*/
+.navbarcolor{
+  background-color: #747eaa;
+}
 .sidebar{
   background-color: #34425A;
 }
 .sidebar ul li a, .contacts a {
-  color: #899dc1;
+  color: #ccffff;
 }
 .sidebar ul li a:hover{
-  color:white;
+  color:#ffffcc;
 }
 .dash_icons{
   margin-bottom: 9px;
 }
 .dashnav{
+  color: #ccffff;
+}
+.dashnav:hover{
   color: white;
 }
