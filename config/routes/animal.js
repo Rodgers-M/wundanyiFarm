@@ -9,7 +9,7 @@ module.exports = {
            animals : animals,
            page   : 'viewanimals'
        });
-     });
+     }).sort({"species" :1});
   },
   records : function(req, res){
     res.render('animals/records',{
