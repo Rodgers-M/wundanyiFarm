@@ -31,12 +31,13 @@
             </thead>
             <tbody>
               <% animals.forEach(function(animal, index){ %>
+                <% date =new Date( animal.date) %>
               <tr>
                 <th scope="row"><%= index + 1 %></th>
                 <td><%= animal.species %></td>
                 <td><%= animal.tagnum %></td>
                 <td><%= animal.gender %></td>
-                <td><%= animal.date %></td>
+                <td><%= date.toLocaleString() %> (EAT)</td>
                 <td>
                   <ul class="menu">
                     <li><a href="#" title="Edit"> Edit<i class="fa fa-pencil-square-o " aria-hidden="true"></i> </a></li>
