@@ -1,2 +1,43 @@
 <% layout('dashboardlayout') %>
-animal health  records will be displayed here
+<div class="row" style="margin-left : 2%;">
+  <div class="medium-12 columns">
+    <p>information about animal health records</p>
+  </div>
+</div>
+<div class="row" style="margin-left : 2%;">
+  <div class="medium-12 columns">
+    <div class="callout success">
+        <div><h3 align="center">Animal health records and their dates</h3></div>
+        <div class=" callout secondary">
+          <table>
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>Animal</th>
+                <th>Tag Number</th>
+                <th>Disease</th>
+                <th>Date treated</th>
+                <th>Next dose</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody style="width : 100%">
+                <% records.forEach(function(health, index){ %>
+                  <% dgdate = new Date(health.diagnosedate) %>
+                  <% nxtdose = new Date(health.nextdose) %>
+                <tr>
+                  <th scope="row"><%= index + 1 %></th>
+                  <td><%= health.animal.species %></td>
+                  <td><%= health.animal.tagnum %></td>
+                  <td><%= health.disease %></td>
+                  <td><%= dgdate.toLocaleString()%></td>
+                  <td><%= nxtdose.toLocaleString() %></td>
+                  <td><%= health.totalcost %></td>
+              </tr>
+                <%});%>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
