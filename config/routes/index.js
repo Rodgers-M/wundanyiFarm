@@ -25,5 +25,6 @@ router.get('/records',isLoggedIn, animalRoutes.records);
 router.post('/animalnew',isLoggedIn, animalRoutes.create);
 router.get('/viewanimals',isLoggedIn, animalRoutes.index);
 router.post('/healthcreate',isLoggedIn, animalRoutes.healthcreate);
+router.get('/animalhealth',  animalRoutes.viewhealth);
 
 module.exports = router;
