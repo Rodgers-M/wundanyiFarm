@@ -6,7 +6,7 @@ var healthSchema = new Schema({
   diagnosedate      : {type : Date, default : Date.now},
   totalcost         : {type : Number},
   nextdose          : {type : Date},
-  animal            : [{type: Schema.Types.ObjectId, ref: Animal }]
+  animal            : [{type: Schema.Types.ObjectId, ref: 'Animal' }]
 });
 
 module.exports = mongoose.model('Health', healthSchema);
