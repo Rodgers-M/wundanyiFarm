@@ -59,7 +59,7 @@ module.exports = {
 
         health.disease = req.body.disease;
         health.diagnosedate = req.body.diagnosedate;
-        health.cost = req.body.cost;
+        health.totalcost = req.body.cost;
         health.nextdose = req.body.nextdose;
         health.animal = animalId;
 
@@ -71,6 +71,19 @@ module.exports = {
         });
       }
     });
+
+  },
+  viewhealth : function(req, res){
+    Health.find({}).populate('animal').exec(
+      function(err, records){
+        if(err) return err;
+       res.render('animals/health',{
+        page : 'viewhealth', 
+       records : records
+      });
+      }
+    );
+
 
   }
   }
