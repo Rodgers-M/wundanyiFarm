@@ -22,6 +22,7 @@ module.exports = {
     animal.species  = req.body.species;
     animal.gender   = req.body.gender;
     animal.tagnum   = req.body.tagnum;
+    animal.date     = req.body.date;
 
     Animal.findOne({'tagnum': animal.tagnum}, function(err, foundAnimal){
       if (foundAnimal){
@@ -78,7 +79,7 @@ module.exports = {
       function(err, records){
         if(err) return err;
        res.render('animals/health',{
-        page : 'viewhealth', 
+        page : 'viewhealth',
        records : records
       });
       }
