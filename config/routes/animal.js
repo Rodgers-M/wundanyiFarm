@@ -74,14 +74,14 @@ module.exports = {
 
   },
   viewhealth : function(req, res){
-    Health.find().populate('animal', 'tagnum', null).exec(
+    Health.find().populate('animal').exec(
       function(err, records){
         if(err) return err;
-      //  res.render('animals/health',{
-      //  page : 'viewhealth',
-    //   records : records
-    //  });
-    res.json(records);
+     res.render('animals/health',{
+       page : 'viewhealth',
+      records : records
+     });
+    //res.json(records);
       }
     );
 
