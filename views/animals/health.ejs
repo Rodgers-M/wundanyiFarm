@@ -28,8 +28,8 @@
                   <% animal = health.animal %>
                 <tr>
                   <th scope="row"><%= index + 1 %></th>
-                  <td><%= animal %></td>
-                  <td><%= health.animal.tagnum %></td>
+                  <td><%= animal[0].species %></td>
+                  <td><%= health.animal[0].tagnum %></td>
                   <td><%= health.disease %></td>
                   <td><%= dgdate.toLocaleString()%></td>
                   <td><%= nxtdose.toLocaleString() %></td>
