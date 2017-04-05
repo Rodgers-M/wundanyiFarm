@@ -26,7 +26,7 @@ router.get('/records',isLoggedIn, animalRoutes.records);
 router.post('/animalnew',isLoggedIn, animalRoutes.create);
 router.get('/viewanimals',isLoggedIn, animalRoutes.index);
 router.post('/healthcreate',isLoggedIn, animalRoutes.healthcreate);
-router.get('/animalhealth', isLoggedIn, animalRoutes.viewhealth);
+router.get('/animalhealth',isLoggedIn,  animalRoutes.viewhealth);
 router.get('/farminput', isLoggedIn, farminputRoutes.new);
 router.post('/inputcreate', isLoggedIn, farminputRoutes.create);
 

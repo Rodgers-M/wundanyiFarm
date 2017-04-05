@@ -1,6 +1,9 @@
 <% layout('dashboardlayout') %>
-<div class="row">
-  <div class="medium-2 columns medium-offset-6" style="margin-top:2%">
+<div class="row collapse">
+  <div class="medium-5 columns medium-offset-1" style="margin-top:2%; margin-bottom: 2">
+    <% include ../partials/flash %>
+  </div>
+  <div class="medium-2 columns " style="margin-top:2%">
     <a class="large button" href="#/animalbreeds">Farm Breeds</a>
   </div>
   <div class="medium-2 columns " style="margin-top:2%">
@@ -10,12 +13,7 @@
     <a class="large button" href="/records">New Animal</a>
   </div>
 </div>
-<div class="row">
-  <div class="medium-5 columns medium-offset-3" style="margin-top:2%; margin-bottom: 2">
-    <% include ../partials/flash %>
-  </div>
-</div>
-<div class="row" style="margin-left : 2%;">
+<div class="row collapse" style="margin-left : 1%;">
   <div class="medium-12 columns ">
     <div class="callout success">
       <div><h3 align="center">All Animals in the Farm as recorded</h3></div>

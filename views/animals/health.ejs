@@ -1,10 +1,10 @@
 <% layout('dashboardlayout') %>
-<div class="row" style="margin-left : 2%;">
+<div class="row collapse" style="margin-left : 1%;">
   <div class="medium-12 columns">
     <p>information about animal health records</p>
   </div>
 </div>
-<div class="row" style="margin-left : 2%;">
+<div class="row collapse" style="margin-left : 1%;">
   <div class="medium-12 columns">
     <div class="callout success">
         <div><h3 align="center">Animal health records and their dates</h3></div>
@@ -25,10 +25,11 @@
                 <% records.forEach(function(health, index){ %>
                   <% dgdate = new Date(health.diagnosedate) %>
                   <% nxtdose = new Date(health.nextdose) %>
+                  <% animal = health.animal %>
                 <tr>
                   <th scope="row"><%= index + 1 %></th>
-                  <td><%= health.animal.species %></td>
-                  <td><%= health.animal.tagnum %></td>
+                  <td><%= animal[0].species %></td>
+                  <td><%= health.animal[0].tagnum %></td>
                   <td><%= health.disease %></td>
                   <td><%= dgdate.toLocaleString()%></td>
                   <td><%= nxtdose.toLocaleString() %></td>
