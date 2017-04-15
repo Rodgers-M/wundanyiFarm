@@ -1,9 +1,10 @@
 var Animal = require('../../app/models/animal');
 var Health = require('../../app/models/health');
+var User   = require('../../app/models/user');
 
 module.exports = {
   index : function(req, res){
-    Animal.find({}, function(error, animals){
+    Animal.find({owner : req.user.username}, function(error, animals){
        if(error) res.send(error);
        res.render('animals/index',{
            animals : animals,
@@ -23,6 +24,7 @@ module.exports = {
     animal.gender   = req.body.gender;
     animal.tagnum   = req.body.tagnum;
     animal.date     = req.body.date;
+	  animal.owner	  = req.user.username;
 
     Animal.findOne({'tagnum': animal.tagnum}, function(err, foundAnimal){
       if (foundAnimal){
@@ -58,11 +60,12 @@ module.exports = {
         console.log(animalId)
         var health = new Health();
 
-        health.disease = req.body.disease;
+        health.disease      = req.body.disease;
         health.diagnosedate = req.body.diagnosedate;
-        health.totalcost = req.body.cost;
-        health.nextdose = req.body.nextdose;
-        health.animal = animalId;
+        health.totalcost    = req.body.cost;
+        health.nextdose     = req.body.nextdose;
+        health.animal       = animalId;
+        health.createdby    = req.user.username;
 
         health.save(function(err,heath){
           if(err) return(err);
@@ -75,14 +78,13 @@ module.exports = {
 
   },
   viewhealth : function(req, res){
-    Health.find().populate('animal').exec(
+    Health.find({createdby : req.user.username}).populate('animal').exec(
       function(err, records){
         if(err) return err;
-       res.render('animals/health',{
-        page : 'viewhealth',
-       records : records
-      });
-
+     res.render('animals/health',{
+       page : 'viewhealth',
+      records : records
+     });
       }
     );
     }
