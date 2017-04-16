@@ -23,7 +23,8 @@ module.exports = {
     animal.species  = req.body.species;
     animal.gender   = req.body.gender;
     animal.tagnum   = req.body.tagnum;
-	  animal.owner	  = req.user.username;
+	animal.date		= req.body.date;
+	animal.owner    = req.user.username;
 
     Animal.findOne({'tagnum': animal.tagnum}, function(err, foundAnimal){
       if (foundAnimal){
@@ -39,6 +40,23 @@ module.exports = {
       }
     });
   },
+	edit : function(req, res){
+	
+	Animal.findOne({'tagnum': req.params.tagnum}, function(err, foundAnimal){
+		if (err) return next(err);
+		res.render('animals/edit',{
+			page	: 'animals',
+			animal	: foundAnimal	
+		});
+	});
+	},
+	update : function(req, res){
+		var tagnumb = req.body.tagnum;
+		console.log(tagnumb);
+	Animal.findOne({'tagnum': tagnumb}, function(error, animal){
+			res.json(animal);
+		});
+	},
   health : function(req, res){
     res.render('animals/health', {
       page : 'animals'
