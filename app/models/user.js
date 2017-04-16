@@ -25,5 +25,10 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
+//delete all documents referenced to the user before deleteing the user
+userSchema.pre('remove', function(next){
+	//remove all animals referenced to this user
+	this.model('Animal').remove({owner : this.local.username},next);
+});
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
