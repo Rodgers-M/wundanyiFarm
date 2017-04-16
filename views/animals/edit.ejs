@@ -1,0 +1,67 @@
+
+<% layout('dashboardlayout') %>
+<div class="row" style="margin-top :2%">
+	<div class="medium-10 columns medium-offset-1">
+		<div class="callout success">
+			<p>You are at the editting page, you will soon be editting and updtaing informatiion
+				about this animal. Please make sure you do the correct edits and then update.
+			</p>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-bottom: 1%;">
+  <div class="medium-6 columns medium-offset-4" style="margin-top:2%" align="center">
+    <% include ../partials/flash %>
+  </div>
+</div>
+    <form action="/animals/update" method="post">
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5> Animal species</h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <select name="species">
+            <option><%=animal.species %> </option>
+            <option value="cow">Cow</option>
+            <option value="goat">Goat</option>
+            <option value="sheep">Sheep</option>
+            <option value="donkey">Donkey</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Tag Number</strong></h5>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="text" name="tagnum" value="<%=animal.tagnum %> ">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Animal gender </h5></label>
+        </div>
+        <div class="medium-2 columns">
+            Female :
+          <input type="radio" name="gender"  value="female"
+		 checked="checked">
+        </div>
+        <div class="medium-2 columns end">
+            Male :
+          <input type="radio" name="gender"  value="male">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns medium-offset-1">
+          <label><h5>Date Bought/born</h5></label>
+        </div>
+        <div class="medium-6 columns end">
+          <input type="date" placeholder="Date diagnosed/vaccinated">
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 medium-offset-6">
+          <button class="button large"type="submit">Save Records</button>
+        </div>
+      </div>
+    </form>
