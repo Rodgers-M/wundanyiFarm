@@ -15,8 +15,6 @@ passport.deserializeUser(function(username, done) {
 });
 
 passport.use('local-signup', new LocalStrategy({
-       // by default, local strategy uses username and password,
-       //we will override with email
        usernameField : 'username',
        passwordField : 'password',
        passReqToCallback : true
