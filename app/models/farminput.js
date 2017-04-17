@@ -7,7 +7,7 @@ var farminputSchema = new Schema({
   pricePerItem     : {type : Number},
   NumOfItems       : {type : Number},
   date             : {type : Date, default : Date.now},
-  owner            : [{type: Schema.Types.ObjectId, ref: 'User' }]// reference to the user model
+  owner			   : {type: String, ref: 'User' }// reference to the user model
 });
 
 module.exports = mongoose.model('FarmInput', farminputSchema);
