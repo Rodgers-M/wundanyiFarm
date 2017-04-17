@@ -9,7 +9,7 @@ module.exports ={
   },
   create : function(req, res, next){
     passport.authenticate('local-signup',{
-      successRedirect : '/viewanimals',
+      successRedirect : '/login',
       failureRedirect : '/signup',
       failureFlash : true // allow flash messages
     })(req, res, next);
