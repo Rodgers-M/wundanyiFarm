@@ -26,9 +26,11 @@ userSchema.methods.validPassword = function(password) {
 };
 
 //delete all documents referenced to the user before deleteing the user
+//this will prevent deletion anomalies
 userSchema.pre('remove', function(next){
-	//remove all animals referenced to this user
-	this.model('Animal').remove({owner : this.local.username},next);
+	Animal.remove({owner	 : this.local.username}).exec();
+	Health.remove({owner	 : this.local.username}).exec();
+	FarmInput.remove({owner	 : this.local.username}).exec();
 });
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
