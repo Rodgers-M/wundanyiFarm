@@ -15,6 +15,7 @@
   </div>
 </div>
     <form action="/animals/update" method="post">
+		<input type="hidden" name="tag" value="<%=animal.tagnum %>"/>
       <div class="row">
         <div class="medium-3 columns medium-offset-1">
           <label><h5> Animal species</h5></label>
@@ -61,7 +62,7 @@
       </div>
       <div class="row">
         <div class="medium-3 medium-offset-6">
-          <button class="button large"type="submit">Save Records</button>
+          <button class="button large"type="submit">Update Records</button>
         </div>
       </div>
     </form>
