@@ -23,8 +23,8 @@ module.exports = {
     animal.species  = req.body.species;
     animal.gender   = req.body.gender;
     animal.tagnum   = req.body.tagnum;
-	  animal.date		  = req.body.date;
-	  animal.owner    = req.user.username;
+    animal.date		= req.body.date;
+    animal.owner    = req.user.username;
 
 
     Animal.findOne({'tagnum': animal.tagnum}, function(err, foundAnimal){
@@ -42,7 +42,7 @@ module.exports = {
     });
   },
 	edit : function(req, res){
-
+		console.log(req.params.tagnum);
 	Animal.findOne({'tagnum': req.params.tagnum}, function(err, foundAnimal){
 		if (err) return next(err);
 		res.render('animals/edit',{
@@ -52,12 +52,22 @@ module.exports = {
 	});
 	},
 	update : function(req, res){
-		var tagnumb = req.body.tagnum;
-		console.log(tagnumb);
-	Animal.findOne({'tagnum': tagnumb}, function(error, animal){
-			res.json(animal);
+    var tagnum = req.body.tagnum;
+    var trimmedtagnum = tagnum.trim();
+		Animal.findOne({'tagnum' :req.body.tag}, function(error, foundAnimal){
+		if(error) return next(error);
+		if(req.body.species) foundAnimal.species = req.body.species;
+		if(req.body.tagnum) foundAnimal.tagnum = trimmedtagnum;
+		if(req.body.gender) foundAnimal.gender = req.body.gender;
+		if(req.body.date) foundAnimal.date = req.body.date;
+		foundAnimal.save(function(error){
+			if(error) return next(error);
+			req.flash('success','Animal record updated successfully');
+			res.redirect('/viewanimals');
+		});
 		});
 	},
+
   health : function(req, res){
     res.render('animals/health', {
       page : 'animals'
