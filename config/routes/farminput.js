@@ -12,7 +12,7 @@ module.exports = {
     farminput.NumOfItems    = req.body.NumOfItems;
     farminput.pricePerItem  = req.body.price;
     farminput.date          = req.body.date;
-    farminput.owner         = req.user._id;
+    farminput.owner         = req.user.username;
 
     farminput.save(function(err, record){
       if(err) return err;
