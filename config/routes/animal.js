@@ -53,6 +53,7 @@ module.exports = {
 	},
 	update : function(req, res){
     var tagnum = req.body.tagnum;
+    //rmove the white space at the end of tagnum before saving
     var trimmedtagnum = tagnum.trim();
 		Animal.findOne({'tagnum' :req.body.tag}, function(error, foundAnimal){
 		if(error) return next(error);
