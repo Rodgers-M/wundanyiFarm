@@ -10,7 +10,4 @@ var animalSchema = new Schema({
   owner        : {type: String, ref: 'User' }// reference to the user model
 });
 
-animalSchema.pre('remove', function(next){
-	this.model('Health').remove({animal : this._id}, next);
-	});	
 module.exports = mongoose.model('Animal', animalSchema);
