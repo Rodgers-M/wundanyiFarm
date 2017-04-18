@@ -31,4 +31,5 @@ router.get('/farminput', isLoggedIn, farminputRoutes.new);
 router.post('/inputcreate', isLoggedIn, farminputRoutes.create);
 router.get('/editanimal/:tagnum',isLoggedIn, animalRoutes.edit);
 router.post('/animals/update', isLoggedIn, animalRoutes.update);
+router.get('/deleteanimal/:tagnum',isLoggedIn, animalRoutes.delete);
 module.exports = router;
