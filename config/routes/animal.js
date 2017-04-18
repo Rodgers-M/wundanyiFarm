@@ -19,10 +19,13 @@ module.exports = {
   },
   create : function(req,res){
     var animal = new Animal();
-
-    animal.species  = req.body.species;
+	
+	var tagnum = req.body.tagnum;
+    var trimmedtagnum = tagnum.trim();
+    
+	animal.species  = req.body.species;
     animal.gender   = req.body.gender;
-    animal.tagnum   = req.body.tagnum;
+    animal.tagnum   = req.body.trimmedtagnum;
     animal.date		= req.body.date;
     animal.owner    = req.user.username;
 
@@ -66,6 +69,13 @@ module.exports = {
 			req.flash('success','Animal record updated successfully');
 			res.redirect('/viewanimals');
 		});
+		});
+	},
+	delete : function(req, res){
+		Animal.findOneAndRemove({'tagnum': req.params.tagnum},function(err, removedAnimal){
+			if(err) return next(err);
+			req.flash('success', 'animal deleted successfully');
+			res.redirect('/viewanimals');
 		});
 	},
 
