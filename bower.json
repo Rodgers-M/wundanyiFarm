@@ -18,5 +18,8 @@
   "dependencies": {
     "foundation-sites": "^6.3.0",
     "components-font-awesome": "^4.7.0"
+  },
+  "resolutions": {
+    "jquery": ">= 2.2.0"
   }
 }
