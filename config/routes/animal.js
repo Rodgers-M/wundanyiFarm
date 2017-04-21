@@ -71,8 +71,17 @@ module.exports = {
 		});
 		});
 	},
+	confirm : function(req, res){
+		var tagnum	= req.params.tagnum;
+		var species = req.params.species;
+		res.render('animals/confirm',{
+			page	: 'animals',
+			tag		: tagnum,
+			species : species
+		});
+	},
 	delete : function(req, res){
-		Animal.findOneAndRemove({'tagnum': req.params.tagnum},function(err, removedAnimal){
+		Animal.findOneAndRemove({'tagnum': req.body.tagnum},function(err, removedAnimal){
 			if(err) return next(err);
       if(removedAnimal){
         Health.remove({'animal' : removedAnimal._id}, function(error, records){
