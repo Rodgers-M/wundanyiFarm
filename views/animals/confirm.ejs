@@ -1,0 +1,26 @@
+<% layout('dashboardlayout') %>
+<div class="row collapse" style="background-color : white;">
+	<div class="medium-9 columns medium-offset-2" >
+		<form action="/deleteanimal" method="post">
+			<input name="tagnum" type="hidden" value="<%=tag %>">
+			<h3>
+				You are about to delete this <span style="color:blue;"><%=species %></span> 
+				 with tagnum <span style="color:blue;"><%=tag %>?
+			</h3>
+			<h4>
+				This operation will also delete all Health records associated with this 
+				<%=species %>
+			</h4>
+		<div class="row">
+			<div class="medium-2 columns medium-offset-4">
+				<a class="large button" href="/viewanimals">Cancel</a>
+			</div>
+			<div class="medium-2 columns end">
+				<button type="submit" class="button large alert">
+					<strong>Delete</strong>
+				</button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
