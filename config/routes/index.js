@@ -6,6 +6,7 @@ var sessionRoutes     = require('./session');
 var userRoutes        = require('./user');
 var animalRoutes      = require('./animal');
 var farminputRoutes   = require('./farminput');
+var errorhandler      = require('./errorhandlers');
 //check if the user is loggedin or not
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()){
@@ -31,5 +32,7 @@ router.get('/farminput', isLoggedIn, farminputRoutes.new);
 router.post('/inputcreate', isLoggedIn, farminputRoutes.create);
 router.get('/editanimal/:tagnum',isLoggedIn, animalRoutes.edit);
 router.post('/animals/update', isLoggedIn, animalRoutes.update);
-router.get('/deleteanimal/:tagnum',isLoggedIn, animalRoutes.delete);
+router.get('/deleteanimal/:tagnum/:species',isLoggedIn, animalRoutes.confirm);
+router.post('/deleteanimal',animalRoutes.delete);
+router.use(errorhandler.notfound);
 module.exports = router;
