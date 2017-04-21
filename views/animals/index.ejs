@@ -33,6 +33,7 @@
               <% animals.forEach(function(animal, index){ %>
                 <% date =new Date( animal.date) %>
                 <% tag = animal.tagnum %>
+                <% species = animal.species %>
               <tr>
                 <th scope="row"><%= index + 1 %></th>
                 <td><%= animal.species %></td>
@@ -41,12 +42,14 @@
                 <td><%= date.toLocaleString() %> (EAT)</td>
                 <td>
                   <ul class="menu">
-                    <li><a href="/editanimal/<%= tag%>"> Edit<i class="fa fa-pencil-square-o " aria-hidden="true"></i> </a></li>
-                    <li><a href="/deleteanimal/<%= tag%>" title="Delete">
-						Delete<i class="fa fa-trash " aria-hidden="true"></i></a>
-						
+                    <li><a href="/editanimal/<%= tag%>"> Edit<i class="fa fa-pencil-square-o "
+					 aria-hidden="true"></i> </a></li>
+                    <li>
+					<a data-open="deleteAn" href="/deleteanimal/<%= tag%>/<%= species%>"
+					title="Delete">Delete<i class="fa fa-trash " aria-hidden="true"></i>
+					</a>
 					</li>
-                  </ul>
+				  </ul>
                 </td>
               </tr>
               <%});%>
