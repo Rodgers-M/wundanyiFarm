@@ -7,6 +7,7 @@ var farminputSchema = new Schema({
   pricePerItem     : {type : Number},
   NumOfItems       : {type : Number},
   date             : {type : Date, default : Date.now},
+  totalcost		   : {type :Number},
   owner			   : {type: String, ref: 'User' }// reference to the user model
 });
 
