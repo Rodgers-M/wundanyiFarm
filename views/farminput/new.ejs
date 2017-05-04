@@ -1,9 +1,14 @@
 <% layout('dashboardlayout') %>
 <div class="row collapse">
-  <div class="medium-12 columns" style="margin-top:1%;">
-   <div class="callout success" style="margin-bottom: 1%;">
+  <div class="medium-10 columns medium-offset-1" style="margin-top:1%;">
+   <div class="callout success" style="margin-bottom: 8%;">
 		<p>Make sure your farm records are upto date by ensuring you put all your records here </p>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-8 columns medium-offset-2" style="margin-top:2%; margin-bottom: 2%;">
+	<% include ../partials/flash %>
   </div>
 </div>
 <form method="post" action="/inputcreate" >
@@ -11,8 +16,7 @@
 	<div class="medium-3 columns medium-offset-1">
 	  <label><h5> Item Bought</strong></h5>
 	</div>
-	<div class="medium-6 columns end">
-	  <input type="text" name="item" placeholder="Name of the item you bought">
+	<div class="medium-6 columns end"> <input type="text" name="item" placeholder="Name of the item you bought">
 	</div>
   </div>
   <div class="row">
@@ -40,5 +44,9 @@
 	  <input type="date" name="date">
 	</div>
   </div>
+  <div class="row"> <div class="columns nedium-5 medium-offset-3">
+	<div class="columns medium-3 medium-offset-3">
 	<button type="submit" class="button large"><strong>Save Records</strong></button>
+	</div>
+ </div>
 </form>
