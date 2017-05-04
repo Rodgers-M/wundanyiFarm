@@ -1,7 +1,11 @@
 body{
-  margin-top: 1%;
-  background-color:  #edeff0;
+  margin-top: 0%;
   overflow-x: hidden;
+  background-image: url(../images/bg.jpg);
+  background-size : cover;
+  height : 100vh;
+  background-position :center;
+  background-attachment : fixed;
 }
 /* ------------------------------*/
 /* ---navigation bar styles ---- */
@@ -86,4 +90,7 @@ body{
 }
 .dashnav:hover{
   color: white;
+}
+.right_margin{
+ margin-right : 1%;
 }
