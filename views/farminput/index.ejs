@@ -1,1 +1,38 @@
 <% layout('dashboardlayout') %>
+<div class="row collapse" style="margin-left : 1%;">
+	<div class="columns medium-5 medium-offset-3">
+	<% include ../partials/flash %>
+	</div>
+</div>
+<div class="row collapse" style="margin-top :2%;">
+	<div class="columns medium-3 medium-offset-9">
+		<a class="button large success" href="/newfarminput">Input Records</a>
+	</div>
+</div>
+<div class="row collapse">
+	<div class="callout">
+		<div><h3 align="center">Records of Farm Inputs</h3></div>
+		<div class="callout primary">
+			<div class="row">
+				<div class="medium-1 columns"> Count</div>
+				<div class="medium-2 columns">Item Bought</div>
+				<div class="medium-2 columns"> No. of Items</div>
+				<div class="medium-2 columns">Price Per Item</div>
+				<div class="medium-2 columns">Date</div>
+				<div class="medium-2 columns">Total Cost</div>
+				<div class="medium-1 columns"> Options</div>
+			</div>
+		<% records.forEach(function(record, count){ %>
+			<div class="row">
+				<div class="medium-1 columns"> Count</div>
+				<div class="medium-2 columns">Item Bought</div>
+				<div class="medium-2 columns"> No. of Items</div>
+				<div class="medium-2 columns">Price Per Item</div>
+				<div class="medium-2 columns">Date</div>
+				<div class="medium-2 columns">Total Cost</div>
+			</div>
+
+		<% }) %>
+		</div>
+	</div>
+</div>
