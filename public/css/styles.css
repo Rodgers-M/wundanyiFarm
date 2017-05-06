@@ -52,8 +52,8 @@ body{
 }
 .footer{
   padding-top: 0;
-  color: white;
-  background-color:  #34425A;
+  color: #f2e7e7;
+  background-color:#3c3b3a;
 }
 .contacts-twitter a:hover {
   color : #00aced;
