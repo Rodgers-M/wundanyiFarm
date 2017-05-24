@@ -33,7 +33,6 @@ router.post('/inputcreate', isLoggedIn, farminputRoutes.create);
 router.get('/farminput', isLoggedIn, farminputRoutes.index);
 router.get('/editanimal/:tagnum',isLoggedIn, animalRoutes.edit);
 router.post('/animals/update', isLoggedIn, animalRoutes.update);
-router.get('/deleteanimal/:tagnum/:species',isLoggedIn, animalRoutes.confirm);
-router.post('/deleteanimal',animalRoutes.delete);
+router.post('/deleteanimal', isLoggedIn, animalRoutes.delete);
 router.use(errorhandler.notfound);
 module.exports = router;
