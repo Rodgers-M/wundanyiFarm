@@ -17,7 +17,7 @@
   <div class="medium-12 columns ">
     <div class="callout success">
       <div><h3 align="center">
-		All Animals in <span style="color:blue;"><%= user.username %></span>
+		All Animals in <span style="color:blue;"><%= user.username %>'s</span>
 			Farm as recorded</h3></div>
       <div class="callout secondary">
         <table style="width: 100%">
@@ -44,12 +44,39 @@
                 <td><%= date.toLocaleString() %> (EAT)</td>
                 <td>
                   <ul class="menu">
-                    <li><a href="/editanimal/<%= tag%>"> Edit<i class="fa fa-pencil-square-o "
-					 aria-hidden="true"></i> </a></li>
                     <li>
-					<a data-open="deleteAn" href="/deleteanimal/<%= tag%>/<%= species%>"
-					title="Delete">Delete<i class="fa fa-trash " aria-hidden="true"></i>
-					</a>
+						<a href="/editanimal/<%= tag%>"> Edit<i class="fa fa-pencil-square-o "
+						 aria-hidden="true"></i> </a>
+					</li>
+                    <li>
+						<a data-open="<%=tag %>" href="#"
+						title="Delete">Delete<i class="fa fa-trash " aria-hidden="true"></i>
+						</a>
+
+						<form method="post" action="/deleteanimal" class="reveal" id="<%=tag %>" data-reveal>
+					      <input name="tagnum" type="hidden" value="<%=tag %>">
+						  <p class="lead">
+							You are about to delete this <span style="color:blue;"><%=species %></span> 
+							 with tagnum <span style="color:blue;"><%=tag %>?</span> This operation will also
+							 delete all Health records associated with this <%=species %>
+						  </p>
+						  <div class="row">
+							<div class="medium-2 columns medium-offset-4">
+							<button class="button" data-close aria-label="Close modal" type="button">
+								Cancel
+						    </button>
+
+							</div>
+							<div class="medium-2 columns end">
+								<button type="submit" class="button alert">
+									<strong>Delete</strong>
+								</button>
+							</div>
+					      </div>
+						  <button class="close-button" data-close aria-label="Close modal" type="button">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</form>
 					</li>
 				  </ul>
                 </td>
