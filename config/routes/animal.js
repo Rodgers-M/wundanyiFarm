@@ -71,25 +71,21 @@ module.exports = {
 		});
 		});
 	},
-	confirm : function(req, res){
-		var tagnum	= req.params.tagnum;
-		var species = req.params.species;
-		res.render('animals/confirm',{
-			page	: 'animals',
-			tag		: tagnum,
-			species : species
-		});
-	},
 	delete : function(req, res){
-		Animal.findOneAndRemove({'tagnum': req.body.tagnum},function(err, removedAnimal){
+		var tag = req.body.tagnum;
+		var trimmedtag = tag.trim();
+	Animal.findOneAndRemove({'tagnum': trimmedtag},function(err, removedAnimal){
+			console.log(removedAnimal);
 			if(err) return next(err);
       if(removedAnimal){
         Health.remove({'animal' : removedAnimal._id}, function(error, records){
           if(error) return next(error);
-          req.flash('success', 'animal deleted successfully');
-    			res.redirect('/viewanimals');
+		  	req.flash('success', 'animal deleted successfully');
+    		res.redirect('/viewanimals');
         });
-      } else {
+   
+	  }
+	  else {
         req.flash('error', 'error, failed to delete animal, please try again');
         res.redirect('/viewanimals');
       }
