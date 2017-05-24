@@ -72,11 +72,8 @@ module.exports = {
 		});
 	},
 	delete : function(req, res){
-		var tag = req.body.tagnum;
-		var trimmedtag = tag.trim();
-	Animal.findOneAndRemove({'tagnum': trimmedtag},function(err, removedAnimal){
-			console.log(removedAnimal);
-			if(err) return next(err);
+	Animal.findOneAndRemove({'tagnum': req.body.tagnum},function(err, removedAnimal){
+		if(err) return next(err);
       if(removedAnimal){
         Health.remove({'animal' : removedAnimal._id}, function(error, records){
           if(error) return next(error);
