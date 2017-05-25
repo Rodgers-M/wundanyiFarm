@@ -9,30 +9,79 @@
 		<a class="button large success" href="/newfarminput">Input Records</a>
 	</div>
 </div>
-<div class="row collapse">
-	<div class="callout">
-		<div><h3 align="center">Records of Farm Inputs</h3></div>
-		<div class="callout primary">
-			<div class="row">
-				<div class="medium-1 columns"> Count</div>
-				<div class="medium-2 columns">Item Bought</div>
-				<div class="medium-2 columns"> No. of Items</div>
-				<div class="medium-2 columns">Price Per Item</div>
-				<div class="medium-2 columns">Date</div>
-				<div class="medium-2 columns">Total Cost</div>
-				<div class="medium-1 columns"> Options</div>
-			</div>
-		<% records.forEach(function(record, count){ %>
-			<div class="row">
-				<div class="medium-1 columns"> Count</div>
-				<div class="medium-2 columns">Item Bought</div>
-				<div class="medium-2 columns"> No. of Items</div>
-				<div class="medium-2 columns">Price Per Item</div>
-				<div class="medium-2 columns">Date</div>
-				<div class="medium-2 columns">Total Cost</div>
-			</div>
+<div class="row collapse" style="margin-left : 1%;">
+  <div class="medium-12 columns">
+    <div class="callout success">
+        <div><h3 align="center">Farm Input Records</h3></div>
+        <div class=" callout secondary">
+          <table>
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>Item Bought</th>
+                <th> No. of Items</th>
+                <th>Price Per Item</th>
+                <th>Date</th>
+                <th>Total Cost</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody style="width : 100%">
+                <% records.forEach(function(record, count){ %>
+				<% recdate = new Date(record.date) %>
 
-		<% }) %>
-		</div>
-	</div>
+                <tr>
+                  <th scope="row"><%=count + 1 %></th>
+                  <td><%= record.itemBought %></td>
+                  <td><%= record.NumOfItems %></td>
+                  <td><%= record.pricePerItem %></td>
+                  <td><%= recdate.toLocaleString()%></td>
+                  <td><%= record.totalcost %></td>
+				<td>
+                  <ul class="menu">
+                    <li>
+						<a href="#/editinput/<%=record.slug%>"> Edit<i class="fa fa-pencil-square-o "
+						 aria-hidden="true"></i> </a>
+					</li>
+                    <li>
+						<a data-open="<%=record.slug%>" href="#"
+						title="Delete">Delete<i class="fa fa-trash " aria-hidden="true"></i>
+						</a>
+
+						<form method="post" action="/deleteinput" class="reveal" id="<%=record.slug%>"
+						 data-reveal>
+					      <input name="itemBought" type="hidden" value="<%=record.slug%>">
+						  <p class="lead">
+							You are about to delete record of <span style="color:blue;"><%=record.itemBought %>
+							</span> bought on <span style="color:blue;"><%=recdate.toLocaleString() %>?</span>
+						  </p>
+						  <div class="row">
+							<div class="medium-2 columns medium-offset-4">
+							<button class="button" data-close aria-label="Close modal" type="button">
+								Cancel
+						    </button>
+
+							</div>
+							<div class="medium-2 columns end">
+								<button type="submit" class="button alert">
+									<strong>Delete</strong>
+								</button>
+							</div>
+					      </div>
+						  <button class="close-button" data-close aria-label="Close modal" type="button">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</form>
+					</li>
+				  </ul>
+                </td>
+              </tr>
+                <%});%>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
 </div>
+
+
