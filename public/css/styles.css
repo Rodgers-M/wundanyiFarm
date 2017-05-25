@@ -94,3 +94,6 @@ body{
 .right_margin{
  margin-right : 1%;
 }
+.colborder{
+ border: 1px solid black;
+}
