@@ -10,6 +10,7 @@ module.exports = {
     var  farminput = new FarmInput();
 
     farminput.itemBought    = req.body.item;
+	farminput.slug			= farminput.slugify(req.body.item);
     farminput.NumOfItems    = req.body.NumOfItems;
     farminput.pricePerItem  = req.body.itemprice;
     farminput.date          = req.body.date;
@@ -24,10 +25,13 @@ module.exports = {
     });
   },
 	index : function(req, res){
-		var records = [];
-		res.render('farminput/index',{
-		 page : 'farminput',
-		records:records
+		FarmInput.find({}, function(err, records){
+			if(err) return(err);
+			res.render('farminput/index',{
+			page : 'farminput',
+			records:records
 		});
+	});
+		
 	}
 }
