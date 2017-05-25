@@ -1,0 +1,52 @@
+<% layout('dashboardlayout') %>
+<div class="row collapse">
+  <div class="medium-10 columns medium-offset-1" style="margin-top:1%;">
+   <div class="callout success" style="margin-bottom: 8%;">
+		<p>Editing records of <%=input.itemBought></p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-8 columns medium-offset-2" style="margin-top:2%; margin-bottom: 2%;">
+	<% include ../partials/flash %>
+  </div>
+</div>
+<form method="post" action="/inputcreate" >
+  <div class="row">
+	<div class="medium-3 columns medium-offset-1">
+	  <label><h5> Item Bought</strong></h5>
+	</div>
+	<div class="medium-6 columns end"> <input type="text" name="item" value="<%=input.itemBought %>" >
+	</div>
+  </div>
+  <div class="row">
+	<div class="medium-3 columns medium-offset-1">
+	  <label><h5><strong>Price per item</strong></h5>
+	</div>
+	<div class="medium-6 columns end">
+	  <input type="number" name="itemprice" >
+	</div>
+  </div>
+  <div class="row">
+	<div class="medium-3 columns medium-offset-1">
+	  <label><h5><strong>No. of items</strong></h5>
+	</div>
+	<div class="medium-6 columns end">
+	  <input type="number" name="NumOfItems" placeholder="Number of  items bought">
+	</div>
+  </div>
+
+  <div class="row">
+	<div class="medium-3 columns medium-offset-1">
+	  <label><h5><strong>Date</strong></h5>
+	</div>
+	<div class="medium-6 columns end">
+	  <input type="date" name="date">
+	</div>
+  </div>
+  <div class="row"> <div class="columns nedium-5 medium-offset-3">
+	<div class="columns medium-3 medium-offset-3">
+	<button type="submit" class="button large"><strong>Save Records</strong></button>
+	</div>
+ </div>
+</form>
