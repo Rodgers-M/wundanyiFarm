@@ -22,6 +22,8 @@ mongoose.connect(configDB.url);
 require('./config/passport')(passport);
 
 app.use(express.static(__dirname + '/public'));
+app.use('/editanimal' , express.static(__dirname + '/public'));
+app.use('/editinput' , express.static(__dirname + '/public'));
 
 app.use(cookieParser());
 app.use(session({
