@@ -58,12 +58,16 @@ module.exports = {
 			
 			input.save(function(err, updatedinpt){
 			 if(err) return(err);
-			 req.flash('success', 'input update successfuly');
+			 req.flash('success', 'input updated successfuly');
 			 res.redirect('farminput');
 			});
 		})
 	},
 	delete : function(req, res){
-
+		FarmInput.findOneAndRemove({'slug': req.body.itemBought}, function(err,deletedInpt){
+			if(err) return(err);
+			 req.flash('success', 'input deleted successfuly');
+			 res.redirect('farminput');
+		});
 	}
 }
