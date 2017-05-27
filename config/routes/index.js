@@ -40,7 +40,7 @@ router.post('/inputcreate', isLoggedIn, farminputRoutes.create);
 router.get('/farminput', isLoggedIn, farminputRoutes.index);
 router.get('/editinput/:slug', isLoggedIn, farminputRoutes.edit);
 router.post('/updateinput', isLoggedIn, farminputRoutes.update);
-router.get('/deleteinput', isLoggedIn, farminputRoutes.delete);
+router.post('/deleteinput', isLoggedIn, farminputRoutes.delete);
 
 
 //Error handler for any other route apart from the defined routes
