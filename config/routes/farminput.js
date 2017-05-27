@@ -33,5 +33,37 @@ module.exports = {
 		});
 	});
 		
+	},
+   edit : function(req, res){
+   	FarmInput.findOne({'slug':req.params.slug}, function(err, input){
+		if(err) return(err);
+		res.render('farminput/edit',{
+			page 	: 'farminput',
+			input 	: input
+		});
+	});
+   },
+	update : function(req, res){
+   		FarmInput.findOne({'slug':req.body.slug}, function(err, input){
+			
+			var totalcost = req.body.NumOfItems * req.body.itemprice;
+
+			input.itemBought    = req.body.item || input.itemBought;
+			input.slug			= input.slugify(req.body.item) || input.slug;
+			input.NumOfItems    = req.body.NumOfItems || input.NumOfItems ;
+			input.pricePerItem  = req.body.itemprice || input.pricePerItem;
+			input.date          = req.body.date || input.date;
+			input.owner         = req.user.username || input.owner;
+			input.totalcost		= totalcost || input.totalcost;
+			
+			input.save(function(err, updatedinpt){
+			 if(err) return(err);
+			 req.flash('success', 'input update successfuly');
+			 res.redirect('farminput');
+			});
+		})
+	},
+	delete : function(req, res){
+
 	}
 }
