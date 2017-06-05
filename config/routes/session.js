@@ -1,4 +1,5 @@
-var passport   =  require('passport');
+var passport   	=  require('passport');
+var Role		= require("../../app/models/roles"); 
 module.exports ={
   new : function(req, res){
     res.render('login', {
@@ -6,16 +7,35 @@ module.exports ={
         title: "Login Page"
     });
   },
-  create : function(req, res, next){
+  create : function(req,res, next){
     passport.authenticate('local-login', function(err, user){
       if(err) return next(err);
       if(!user){
-        console.log('user not found');
+       console.log('user not found');
        return res.redirect('/login');
      }
      req.login(user, function(err){
+       if(err) return next(err);
        console.log(user);
-       res.redirect(req.session.returnTo || '/viewanimals');
+       console.log(user.local.username);
+       roleId = user.local.role;
+
+       Role.findById(roleId, function(err, role){
+         if(err) return err;
+         if(role !== null){
+           if(role.name == 'admin'){
+             res.redirect(req.session.returnTo || '/agrimonadmin');
+             delete req.session.returnTo;
+           }
+           else {
+             res.redirect(req.session.returnTo || '/viewanimals');
+             delete req.session.returnTo;
+           }
+         }
+         else{
+             res.redirect('/viewanimals');
+         }
+       });
      });
     })(req, res, next);
   },
