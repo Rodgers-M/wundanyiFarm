@@ -6,6 +6,11 @@ var sessionRoutes     = require('./session');
 var userRoutes        = require('./user');
 var animalRoutes      = require('./animal');
 var farminputRoutes   = require('./farminput');
+var roleRoutes        = require('./roles');
+
+var Role              = require("../../app/models/roles");
+var User              = require("../../app/models/user");
+
 var errorhandler      = require('./errorhandlers');
 //check if the user is loggedin or not
 function isLoggedIn(req, res, next) {
@@ -15,6 +20,30 @@ function isLoggedIn(req, res, next) {
   req.session.returnTo = req.path;
   req.flash('info', 'you must login to acces this page');
   res.redirect('/login');
+}
+
+function isAdmin(req, res, next){
+  username = req.user.username;
+  console.log(username);
+  User.findOne({'local.username' : username}, function(err, foundUser){
+    roleId = foundUser.local.role;
+
+    Role.findById(roleId, function(err, role){
+      if(err) return error;
+      if(role !==null){
+        if(role.name == 'admin'){
+          return next()
+        }
+        req.flash('error', 'you are not authorised to access that resource');
+        res.redirect('/viewanimals');
+      }
+      else{
+        req.flash('error', 'you are not authorised to access that resource');
+        res.redirect('/viewanimals');
+      }
+
+    } );
+  });
 }
 // user routes
 router.get('/', homeRoutes.index);
