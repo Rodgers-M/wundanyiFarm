@@ -1,0 +1,20 @@
+<div class="medium-2 columns sidebar"  data-equalizer-watch>
+	<ul class="menu vertical" align="center">
+  <li ><a href="#">
+		 <i class="fa fa-user-circle-o fa-2x dash_icons" aria-hidden="true"></i> </br><%= user.username %>
+	</a>
+	</li>
+	<li <% if (page === 'viewanimals') { %>class="active" <% } %>><a href="/viewanimals">
+		<i class="fa fa-file-text fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>View</br> Animal Records</strong>
+	</a></li>
+  <li <% if (page === 'animals') { %>class="active" <% } %>><a href="/records">
+		<i class="fa fa-plus-square fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>Input</br> Animal Records</strong>
+	</a></li>
+	<li <% if (page === 'farminput') { %>class="active" <% } %>><a href="/farminput">
+		<i class="fa fa-gavel fa-2x dash_icons" aria-hidden="true"></i> </br> Farm input
+	</a></li>
+	<li><a href="#">
+		<i class="fa fa-shopping-basket fa-2x dash_icons" aria-hidden="true"></i> </br> Farm Produce
+	</a></li>
+</ul>
+</div>
