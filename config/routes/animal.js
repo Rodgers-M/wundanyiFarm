@@ -74,20 +74,16 @@ module.exports = {
 	delete : function(req, res){
 	Animal.findOneAndRemove({'tagnum': req.body.tagnum},function(err, removedAnimal){
 		if(err) return next(err);
-      if(removedAnimal){
-        Health.remove({'animal' : removedAnimal._id}, function(error, records){
-          if(error) return next(error);
-		  	req.flash('success', 'animal deleted successfully');
+			if(removedAnimal){
+			req.flash('success', 'animal deleted successfully');
     		res.redirect('/viewanimals');
-        });
-   
-	  }
-	  else {
-        req.flash('error', 'error, failed to delete animal, please try again');
-        res.redirect('/viewanimals');
-      }
+			} else{
+				req.flash('success', 'could not delete animal');
+    		res.redirect('/viewanimals');
 
-		});
+			}
+
+    		});
 	},
 
   health : function(req, res){
