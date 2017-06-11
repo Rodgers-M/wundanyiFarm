@@ -10,4 +10,7 @@ var animalSchema = new Schema({
   owner        : {type: String, ref: 'User' }// reference to the user model
 });
 
+animalSchema.post('findOneAndRemove', function(animal){
+	Health.remove({'animal'	 : animal._id}).exec();
+});
 module.exports = mongoose.model('Animal', animalSchema);
