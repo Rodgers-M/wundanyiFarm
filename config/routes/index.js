@@ -6,7 +6,7 @@ var sessionRoutes     = require('./session');
 var userRoutes        = require('./user');
 var animalRoutes      = require('./animal');
 var farminputRoutes   = require('./farminput');
-var roleRoutes        = require('./roles');
+var rolesRoutes        = require('./roles');
 
 var Role              = require("../../app/models/roles");
 var User              = require("../../app/models/user");
@@ -52,6 +52,14 @@ router.post('/session/create',sessionRoutes.create);
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create', userRoutes.create);
+router.get('/agrimonadmin', isLoggedIn, isAdmin, userRoutes.index);
+router.get('/delete/:user', isLoggedIn, isAdmin, userRoutes.delete);
+
+//roles routes
+router.get('/roles/:role', rolesRoutes.create);
+router.get('/roles', isLoggedIn, rolesRoutes.index);
+router.post('/role', isLoggedIn, rolesRoutes.assign);
+
 
 //animal routes
 router.get('/records',isLoggedIn, animalRoutes.records);
