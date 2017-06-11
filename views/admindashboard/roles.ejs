@@ -1,0 +1,30 @@
+<% layout('adminlayout') %>
+<div class="row">
+  <div class="medium-4 columns medium-offset-2" style="margin-top:2%" align="center">
+    <% include ../partials/flash %>
+  </div>
+</div>
+<form action="/role" method="post" style="margin-top: 2%">
+<div class="row">
+  <div class="medium-1 columns medium-offset-1">
+    <label>Username</label>
+  </div>
+  <div class="medium-4 columns end ">
+    <input type="text" name="username" placeholder="username to assign role">
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-1 columns medium-offset-1">
+    <label>Role</label>
+  </div>
+  <div class="medium-4 columns end ">
+    <input type="text" name="role" placeholder="Role to assign user">
+  </div>
+</div>
+<div class="row">
+  <div class="medium-3 columns medium-offset-3 ">
+    <button type="submit" class="button success">Assign</button>
+  </div>
+</div>
+</form>
