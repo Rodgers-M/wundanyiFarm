@@ -4,10 +4,10 @@
     <% include ../partials/flash %>
   </div>
 </div>
-<div class="row">
+<div class="row collapse">
   <div class="medium-12 columns">
     <div class="callout">
-      <div><h3>Registered members</h3></div>
+      <div><h3>Users of Agrimon</h3></div>
       <div class="callout secondary">
         <table style="width: 100%">
             <thead>
@@ -17,22 +17,20 @@
                 <th>Lastname</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Shares</th>
                 <th>Options</th>
               </tr>
             </thead>
             <tbody>
-              <% members.forEach(function(member, index){ %>
+              <% users.forEach(function(user, index){ %>
               <tr>
                 <th scope="row"><%= index + 1 %></th>
-                <td><%= member.local.firstname %></td>
-                <td><%= member.local.lastname %></td>
-                <td><%= member.local.username %></td>
-                <td><%= member.local.email %></td>
-                <td><%= member.local.shares  %></td>
+                <td><%= user.local.firstname %></td>
+                <td><%= user.local.lastname %></td>
+                <td><%= user.local.username %></td>
+                <td><%= user.local.email %></td>
                 <td>
                   <ul class="menu">
-                    <li><a href="#" title="Delete"><i class="fa fa-trash " aria-hidden="true"></i> Remove</a></li>
+                    <li><a href="/delete/<%=user.local.username%>" title="Delete"><i class="fa fa-trash " aria-hidden="true"></i> Remove</a></li>
                   </ul>
                 </td>
               </tr>
