@@ -1,8 +1,10 @@
 var mongoose      =   require('mongoose');
-var bcrypt       =   require('bcrypt-nodejs')
+var bcrypt        =   require('bcrypt-nodejs')
 var crypto        =   require('crypto');
 var Schema        =   mongoose.Schema;
-
+var Role		  =  require('./roles');	
+var Animal		  =  require('./animal');
+var FarmInput	  =  require('./farminput');
 
 var userSchema    = new Schema({
   local: {
@@ -10,8 +12,8 @@ var userSchema    = new Schema({
       firstname :  { type: String },
       lastname  :  { type: String },
       password  :  { type: String },
-      email     :  { type: String }
-
+      email     :  { type: String },
+	  role		:  [{type: Schema.Types.ObjectId, ref:Role }]
        }
 });
 
@@ -27,9 +29,11 @@ userSchema.methods.validPassword = function(password) {
 
 //delete all documents referenced to the user before deleteing the user
 //this will prevent deletion anomalies
-userSchema.pre('remove', function(next){
-	Animal.remove({'owner'	 : this.local.username}).exec();
-	FarmInput.remove({'owner'	 : this.local.username}).exec();
+userSchema.post('findOneAndRemove', function(user){
+	console.log(user);
+	Animal.remove({'owner'	 	 : user.local.username}).exec();
+	Health.remove({'createdby'	 :  user.local.username}).exec();
+	FarmInput.remove({'owner'	 : user.local.username}).exec();
 });
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
