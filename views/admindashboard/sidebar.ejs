@@ -4,17 +4,11 @@
 		 <i class="fa fa-user-circle-o fa-2x dash_icons" aria-hidden="true"></i> </br><%= user.username %>
 	</a>
 	</li>
-	<li <% if (page === 'viewanimals') { %>class="active" <% } %>><a href="/viewanimals">
-		<i class="fa fa-file-text fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>View</br> Animal Records</strong>
+	<li <% if (page === 'users') { %>class="active" <% } %>><a href="/users">
+		<i class="fa fa-users fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>View Users </strong>
 	</a></li>
-  <li <% if (page === 'animals') { %>class="active" <% } %>><a href="/records">
-		<i class="fa fa-plus-square fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>Input</br> Animal Records</strong>
+  <li <% if (page === 'Status') { %>class="active" <% } %>><a href="/status">
+		<i class="fa fa-bar-chart fa-2x dash_icons" aria-hidden="true"></i> </br> <strong>Farm Status</strong>
 	</a></li>
-	<li <% if (page === 'farminput') { %>class="active" <% } %>><a href="/farminput">
-		<i class="fa fa-gavel fa-2x dash_icons" aria-hidden="true"></i> </br> Farm input
-	</a></li>
-	<li><a href="#">
-		<i class="fa fa-shopping-basket fa-2x dash_icons" aria-hidden="true"></i> </br> Farm Produce
-	</a></li>
-</ul>
+	</ul>
 </div>
