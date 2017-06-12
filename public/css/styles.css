@@ -40,6 +40,9 @@ body{
 .centeralign{
   text-align: center;
 }
+.tap-bar{
+	margin-top:220px;
+}
 /* ------------------------------*/
 /* --- footer styles ---- */
 /* ------------------------------*/
