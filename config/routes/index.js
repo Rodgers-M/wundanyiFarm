@@ -50,6 +50,8 @@ router.get('/', homeRoutes.index);
 router.get('/status', homeRoutes.status);
 router.get('/login', sessionRoutes.new);
 router.post('/session/create',sessionRoutes.create);
+router.get('/resetpass', userRoutes.resetpage);
+router.post('/resetpass', userRoutes.reset);
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create', userRoutes.create);
