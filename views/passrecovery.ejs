@@ -1,0 +1,57 @@
+<% include partials/masterhead %>
+<div class="row" style="margin-top : 5%; ">
+  <div class="medium-5 columns medium-offset-4" style="background-color: #d5d9ca; ">
+      <form action="/session/create" method="post" >
+        <div class="row">
+          <div class="medium-8 columns medium-offset-2" align="center">
+            <h1>Reset password</h1>
+          </div>
+        </div>
+		<div class="row">
+          <div class="medium-8 columns medium-offset-2" style="margin-top:2%; margin-bottom: 2%;">
+            <% include /partials/flash %>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label> <h6>User Name</h6>
+               <input type="text" name="username" placeholder="User name" required>
+            </label>
+          </div>
+        </div>
+	    <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label> <h6>Email</h6>
+               <input type="email" name="email" placeholder="User name" required>
+            </label>
+          </div>
+        </div>
+			
+        <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label><h6> New Password</h6>
+               <input type="password" name="password1" placeholder="Enter Password" required>
+            </label>
+          </div>
+        </div>
+		 <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label><h6> Confirm Password</h6>
+               <input type="password" name="password" placeholder="Enter Password" required>
+            </label>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="medium-4 columns medium-offset-2" >
+            <button type="submit" class="button"><strong>Reset</strong></button>
+          </div>
+          <div class="medium-4 columns end">
+            <p> Back to </br><a href="/signup"><strong>Login</strong></a></p>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+<% include partials/pageScripts %>
